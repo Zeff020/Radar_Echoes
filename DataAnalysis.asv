@@ -1,6 +1,6 @@
-clear, clc, close all
+function AudioInput(AudioFileName,)
 % load an audio file
-[x, fs] = audioread('ShortSound.wav');   % load an audio file
+[x, fs] = audioread(Audiofile);   % load an audio file
 x = x(:, 1);                        % get the first channel
 % define analysis parameters
 wlen = 1024;                        % window length (recomended to be power of 2)
@@ -22,17 +22,19 @@ else                                % even nfft includes Nyquist point
 end
 % convert amplitude spectrum to dB (min = -120 dB)
 S = 20*log10(S + 1e-6);
+
+
 S(S<-20) = -120;
 % plot the spectrogram
 figure(1)
 surf(t, f, S)
-shading interp
-axis tight
-view(0, 90)
-set(gca, 'FontName', 'Times New Roman', 'FontSize', 14)
-xlabel('Time, s')
-ylabel('Frequency, Hz')
-title('Amplitude spectrogram of the signal')
-hcol = colorbar;
-set(hcol, 'FontName', 'Times New Roman', 'FontSize', 14)
-ylabel(hcol, 'Magnitude, dB')
+% shading interp
+% axis tight
+% view(0, 90)
+% set(gca, 'FontName', 'Times New Roman', 'FontSize', 14)
+% xlabel('Time, s')
+% ylabel('Frequency, Hz')
+% title('Amplitude spectrogram of the signal')
+% hcol = colorbar;
+% set(hcol, 'FontName', 'Times New Roman', 'FontSize', 14)
+% ylabel(hcol, 'Magnitude, dB')
