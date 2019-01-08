@@ -1,4 +1,4 @@
-function [S,f,t] = AudioInput(AudioFileName)
+function [S,f,t,hop,fs] = AudioInput(AudioFileName)
 % load an audio file
 [x, fs] = audioread(AudioFileName);   % load an audio file
 x = x(:, 1);                        % get the first channel
