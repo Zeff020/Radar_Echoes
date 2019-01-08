@@ -1,6 +1,6 @@
 clear, clc, close all
 % load an audio file
-[x, fs] = audioread('websdr_recording_2019-01-02t17_59_56z_143048.5khz.wav');   % load an audio file
+[x, fs] = audioread('ShortSound.wav');   % load an audio file
 x = x(:, 1);                        % get the first channel
 % define analysis parameters
 wlen = 1024;                        % window length (recomended to be power of 2)
@@ -8,7 +8,7 @@ hop = wlen/4;                       % hop size (recomended to be power of 2)
 nfft = 4096;                        % number of fft points (recomended to be power of 2)
 % perform STFT
 win = blackman(wlen, 'periodic');
-[S, f, t] = stft(x, win, hop, nfft, fs);
+[S,f,t] = stft(x, win, hop, nfft, fs);
 % calculate the coherent amplification of the window
 C = sum(win)/wlen;
 % take the amplitude of fft(x) and scale it, so not to be a
@@ -22,6 +22,7 @@ else                                % even nfft includes Nyquist point
 end
 % convert amplitude spectrum to dB (min = -120 dB)
 S = 20*log10(S + 1e-6);
+S(S<-20) = -120;
 % plot the spectrogram
 figure(1)
 surf(t, f, S)
