@@ -1,5 +1,6 @@
 function [S,f,t,hop,fs] = AudioInput(AudioFileName)
 % load an audio file
+AudioFileName = "./AudioFiles\" + AudioFileName;
 [x, fs] = audioread(AudioFileName);   % load an audio file
 x = x(:, 1);                        % get the first channel
 % define analysis parameters
@@ -22,7 +23,7 @@ else                                % even nfft includes Nyquist point
 end
 % convert amplitude spectrum to dB (min = -120 dB)
 S = 20*log10(S + 1e-6);
-end
+% S(S<-30) = -120; 
 
 % plotting the spectrogram
 
@@ -31,10 +32,4 @@ end
 % shading interp
 % axis tight
 % view(0, 90)
-% set(gca, 'FontName', 'Times New Roman', 'FontSize', 14)
-% xlabel('Time, s')
-% ylabel('Frequency, Hz')
-% title('Amplitude spectrogram of the signal')
-% hcol = colorbar;
-% set(hcol, 'FontName', 'Times New Roman', 'FontSize', 14)
-% ylabel(hcol, 'Magnitude, dB')
+end
