@@ -29,9 +29,9 @@ S(S>=-30) = 1;
 
 % plotting the spectrogram
 
-% figure(1)
-% surf(t, f, S)
-% shading interp
-% axis tight
-% view(0, 90)
+figure(1)
+surf(t, f, S)
+shading interp
+axis tight
+view(0, 90)
 end
