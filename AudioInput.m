@@ -27,9 +27,9 @@ S = 20*log10(S + 1e-6);
 
 % plotting the spectrogram
 
-% figure(1)
-% surf(t, f, S)
-% shading interp
-% axis tight
-% view(0, 90)
+figure(1)
+surf(t, f, S)
+shading interp
+axis tight
+view(0, 90)
 end

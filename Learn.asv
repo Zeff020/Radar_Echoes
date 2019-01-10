@@ -1,6 +1,0 @@
-function [classifier] = Learn()
-
-Dir = 
-imds = imageDatastore(setDir,'IncludeSubfolders',true),'LabelSource','foldernames');
-
-end
