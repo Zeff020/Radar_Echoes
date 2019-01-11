@@ -23,10 +23,9 @@ else                                % even nfft includes Nyquist point
 end
 % convert amplitude spectrum to dB (min = -120 dB)
 % make image binary
-S = 20*log10(S + 1e-6);
-S(S<-30) = 0; 
-S(S>=-30) = 1;
 
+%S(S<0.9) = 0;
+%S(S>=0.9) = 1;
 
 % plotting the spectrogram
 
