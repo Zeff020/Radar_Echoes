@@ -1,4 +1,4 @@
-function [S,f,t,hop,fs] = AudioInput(AudioFileName)
+function [S,f,t,hop,fs] = AudioIn(AudioFileName)
 % load an audio file
 AudioFileName = "./AudioFiles\" + AudioFileName;
 [x, fs] = audioread(AudioFileName);   % load an audio file
@@ -22,11 +22,9 @@ else                                % even nfft includes Nyquist point
     S(2:end-1, :) = S(2:end-1, :).*2;
 end
 % convert amplitude spectrum to dB (min = -120 dB)
-S = 20*log10(S + 1e-6);
-% S(S<-30) = -120; 
+% S = 20*log10(S + 1e-6);
 
-% plotting the spectrogram
-
+% Plotting the spectrogram
 figure(1)
 surf(t, f, S)
 shading interp
