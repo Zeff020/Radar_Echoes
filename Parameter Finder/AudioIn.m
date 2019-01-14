@@ -1,4 +1,4 @@
-function [S,f,t,hop,fs] = AudioIn(AudioFileName)
+function [S,f,t] = AudioIn(AudioFileName, threshold)
 % load an audio file
 AudioFileName = "./AudioFiles\" + AudioFileName;
 [x, fs] = audioread(AudioFileName);   % load an audio file
@@ -27,21 +27,16 @@ end
 % S = 20*log10(S + 1e-6);
 % S(S<-30) = -120; 
 
-f = f(257:1200);
-S = S(257:1200,:);
-% 
-S(S<0.11) = 0; 
-S(S==0.11) = 1;
-S(S>0.11) = 1;
+f = f(257:257+466);
+S = S(257:257+466,:);
+
+S(S<threshold) = 0;
 
 % plotting the spectrogram (is commented out most of the time)
-figure(1)
-surf(t, f, S)
-shading interp
-axis tight
-view(0, 90)
-
-%
-
+% figure(1)
+% surf(t, f, S)
+% shading interp
+% axis tight
+% view(0, 90)
 
 end
