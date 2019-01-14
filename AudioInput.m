@@ -1,4 +1,3 @@
-function [S,f,t,hop,fs] = AudioInput(AudioFileName)
 % load an audio file
 AudioFileName = "./AudioFiles/" + AudioFileName;
 [x, fs] = audioread(AudioFileName);   % load an audio file
