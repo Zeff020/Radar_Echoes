@@ -1,8 +1,8 @@
 function [CC] = Cutter(S,f,t)
 
 CC = bwconncomp(S);
-
-while i <= 
-[row,col] = ind2sub(size(S),LinearIndex);
-
+Maxlist = [];
+for i = 1:length(CC.PixelIdxList)
+    [ymin,ymax,xmin,xmax]= Maxifier(CC.PixelIdxList(i));
+    Max
 end
