@@ -8,16 +8,18 @@ xmin = min(PixelId{1}); % Minimum linear index is smallest x coordinate
 
 S = S(:,xmin:xmax);
 columns = [];
-for i = 1:size(S,2)
+for i = 1:length(S)
     column = S(i,:);
     if sum(column) ~= 0
         columns(i) = i;
     end
+end
 for j = i:size(S,2)  %goes from ymax until the next 0, index before that is ymin
         column = S(j,:);
     if sum(column) == 0
             columns(j-1) = j;
     end
+end
         
     ymax = i;
     ymin = j;

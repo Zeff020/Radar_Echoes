@@ -7,3 +7,4 @@ for i = 1:length(CC.PixelIdxList)
     C = [ymin,ymax,xmin,xmax];
     Maxlist = [Maxlist;C];
 end
+end
