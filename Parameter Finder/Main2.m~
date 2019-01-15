@@ -2,6 +2,8 @@ function [CC,S] = Main2(AudioFileName, threshold)
 
 [S,f,t] = AudioIn(AudioFileName, threshold);
 
-[CC, Maxlist] = Cutter(S,f,t);
+[CC] = Cutter(S,f,t);
+
+print(ymin, ymax, xmin, xmax)
 
 end
