@@ -1,5 +1,6 @@
 function [S,f,t,hop,fs] = AudioIn(AudioFileName)
 % load an audio file
+AudioFileName = "./AudioFiles/" + AudioFileName;
 [x, fs] = audioread(AudioFileName);   % load an audio file
 x = x(1:2000000, 1);                        % get the first channel
 % define analysis parameters
