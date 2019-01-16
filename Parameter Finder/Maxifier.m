@@ -11,25 +11,18 @@ columns = [];
 for i = 1:length(S)
     column = S(i,:);
     if sum(column) ~= 0
-        columns(i) = i;
+        ymin = i;
         break;
     end
 end
-<<<<<<< HEAD
+
 for j = i:length(S)  %goes from ymax until the next 0, index before that is ymin
-=======
-for j = i:size(S,2)  %goes from ymax until the next 0, index before that is ymin
->>>>>>> 48d5d6648a1b7520048f96b70b2470724a5a15a1
         column = S(j,:);
     if sum(column) == 0
-            columns(j-1) = j;
-            break;
+        ymax = j-1;
+        break;
     end
 end
-        
-end
-    ymax = i;
-    ymin = j;
 end
 
 

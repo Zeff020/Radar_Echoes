@@ -2,7 +2,7 @@ function [S,f,t] = AudioIn(AudioFileName, threshold)
 % load an audio file
 AudioFileName = "./AudioFiles/" + AudioFileName;
 [x, fs] = audioread(AudioFileName);   % load an audio file
-x = x(1:2000000, 1);                        % get the first channel
+% x = x(1:2000000, 1);                        % get the first channel
 % define analysis parameters
 
 wlen = 1024;                        % window length (recomended to be power of 2)
