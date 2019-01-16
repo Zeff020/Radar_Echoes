@@ -1,5 +1,5 @@
 function [IntensityList, frequencyaverage] = ParameterFinder(AudioFileName, Maxlist, categoryClassifier, CC , S, f, t)
-IntensityList = [];
+IntensityList = {};
 frequencyaverage = [];
 for i = 1:length(Maxlist)
     
@@ -32,24 +32,25 @@ for i = 1:length(Maxlist)
     shading interp;
     axis tight;
     view(0, 90);
+    set(findobj(gcf, 'type','axes'), 'Visible','off')
     
     % Saving the file as an image
     ProperDate = replace(replace(datestr(datetime)," ","_"),":" ,".");
-    Filename = "./Images\" + AudioFileName + ProperDate + ".png"; 
-    saveas(gcf, Filename)
+    Filename = './Images\' + AudioFileName + ProperDate + '.png'; 
+    saveas(gcf, Filename);
     
     % Reading the image and letting the algorithm determine whether it is
     % a meteor or not
+    Filename = convertStringsToChars(Filename);
     img = imread(Filename);
-    A = predict(categoryClassifier,img);
-    A(1);
+    [labelIdx, score] = predict(categoryClassifier,img);
     
-    if A(1) == "Meteors"
+    if labelIdx == 1
         % Finding a list of intensities of the object if it is in fact a
         % meteor as determined by the algorithm
         indexesS = CC.PixelIdxList(i);
         indexesS = indexesS{1};
-        IntensityList(i,:) = S(indexesS);
+        IntensityList{i} = S(indexesS);
         % Below we have to decide what we will do in the end with the
         % intensitylist that we get as output (Take average, take min,
         % etc...)
