@@ -1,0 +1,6 @@
+function [IntensityTreshold, height, width, frequency] = ParameterFinder(S,)
+
+
+
+end
+
