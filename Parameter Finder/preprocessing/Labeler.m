@@ -43,7 +43,7 @@ for i = 1:length(Maxlist)
     %    ProperDate = replace(replace(datestr(datetime)," ","_"),":" ,".");
     %    Filename = "./LabeledImages\Nothing\Nothing" + ProperDate + ".png"; 
     %    saveas(gcf, Filename)
-    %else 
+    else 
         display("Wrong input, not saving image")
     end
     
