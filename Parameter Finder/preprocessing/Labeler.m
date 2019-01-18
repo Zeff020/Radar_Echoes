@@ -42,7 +42,7 @@ for i = 1:length(Maxlist)
     elseif Progress < 100
         display("you are currently at " + string(Progress) + ", you are basically a greek god, the meteor god")
     end
-    Labels{i} = input('Type m when you see a meteor, o for some other object, and n for nothing: ', 's');
+    Labels{i} = input('Type m when you see a meteor, o for some other object, and n if you do not want to save: ', 's');
     if Labels{i} == "m"
         ProperDate = replace(replace(datestr(datetime)," ","_"),":" ,".");
         Filename = "./LabeledImages\Meteors\Meteor" + ProperDate + ".png"; 
@@ -56,7 +56,7 @@ for i = 1:length(Maxlist)
     %    Filename = "./LabeledImages\Nothing\Nothing" + ProperDate + ".png"; 
     %    saveas(gcf, Filename)
     else 
-        display("Wrong input, not saving image")
+        display("Not saving image")
     end
     
 end
