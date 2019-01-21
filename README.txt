@@ -1,2 +1,0 @@
-This is the github repo dedicated to the project on the radar echoes. Here we can write any code and potentially share files in
-an organized manner with version control.
