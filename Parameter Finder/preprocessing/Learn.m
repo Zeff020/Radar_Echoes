@@ -5,7 +5,7 @@ Dir = './LabeledImages';
 imds = imageDatastore(Dir,'IncludeSubfolders',true,'LabelSource',...
     'foldernames');
 %Create trainingset and testset
-[trainingSet,testSet] = splitEachLabel(imds,0.4,'randomize');
+[trainingSet,testSet] = splitEachLabel(imds,0.6,'randomize');
 
 %Generate bag of features
 bag = bagOfFeatures(trainingSet);
