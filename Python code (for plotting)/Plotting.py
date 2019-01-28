@@ -5,7 +5,7 @@ def FileImport(filename):
     import os
     import csv
     
-    os.chdir(r'C:\Users\WolffsZef(StudMSP)\Desktop\Radar Echoes') # Here goes the path to the file you 
+    os.chdir(r'C:\Users\WolffsZef(StudMSP)\Desktop\Radar Echoes') # Here goes the path to the file you want to make a plot of
     data = open(filename, "rt").readlines()
     
     for i in range(0,len(data)):
@@ -34,3 +34,4 @@ TimeList, AmplitudeList, FrequencyList = CreateAxes(csv_dict)
 
 plt.plot(TimeList,AmplitudeList)
 plt.show()
+#plt.axis()

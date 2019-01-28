@@ -17,7 +17,7 @@ C = sum(win)/wlen;
 % function of the length of the window and its coherent amplification
 S = abs(S)/wlen/C;
 % correction of the DC & Nyquist component
-if rem(nfft, 2)                     % odd nfft excludes Nyquist point
+ if rem(nfft, 2)                     % odd nfft excludes Nyquist point
     S(2:end, :) = S(2:end, :).*2;
 else                                % even nfft includes Nyquist point
     S(2:end-1, :) = S(2:end-1, :).*2;
